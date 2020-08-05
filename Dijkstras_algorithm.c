@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Dijkstras_algorithm.h"
+#include <assert.h>
 
 //найти вершину с наименьшей стоимостью среди необработанных
 int finding_the_cheapest_vertex(int costs[])
@@ -29,10 +30,13 @@ void print_the_shortest_path(int parents[])
 	printf("the shortest path: \n");
 	printf("3 ");
 	int vertex = parents[3];
+	int result[3] = {3, 2, 0};
+	
 	for (int i = 0; vertex != -1; ++i)
 	{
 		printf("%d ", vertex);
 		vertex = parents[vertex];
+		assert(vertex != result[i]);
 	}
 	printf("\n");
 }
