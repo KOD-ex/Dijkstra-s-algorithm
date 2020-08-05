@@ -1,6 +1,5 @@
 #include "Dijkstras_algorithm.h"
 #include <stdio.h>
-#include <assert.h>
 
 int main()
 {
