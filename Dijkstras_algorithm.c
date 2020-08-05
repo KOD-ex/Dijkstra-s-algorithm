@@ -23,24 +23,6 @@ int finding_the_cheapest_vertex(int costs[])
 	return vertex;
 }
 
-//распечатаем кратчайший путь
-void print_the_shortest_path(int parents[]) 
-{
-	printf("\n");
-	printf("the shortest path: \n");
-	printf("3 ");
-	int vertex = parents[3];
-	int result[3] = {3, 2, 0};
-	
-	for (int i = 0; vertex != -1; ++i)
-	{
-		printf("%d ", vertex);
-		vertex = parents[vertex];
-		assert(vertex != result[i]);
-	}
-	printf("\n");
-}
-
 //Алгоритм Дейкстры
 int Dijkstras_algorithm(int graph[][4], int costs[], int parents[])
 {
@@ -81,6 +63,6 @@ int Dijkstras_algorithm(int graph[][4], int costs[], int parents[])
 		vertex = finding_the_cheapest_vertex(costs); // найти следущий узел с мин стоимостью 
 	}
 
-	print_the_shortest_path(parents);
 	return 0;
+
 }
