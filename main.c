@@ -1,5 +1,30 @@
 #include "Dijkstras_algorithm.h"
 #include <stdio.h>
+#include <assert.h>
+
+//распечатаем кратчайший путь
+void print_the_shortest_path(int parents[], int vertex) 
+{
+    printf("\n");
+    printf("the shortest path: \n");
+    
+    for (int i = 0; vertex != -1; ++i)
+    {
+        printf("%d ", vertex);
+        vertex = parents[vertex];
+    }
+    printf("\n");
+}
+
+void algorithm_testing(int parents[], int vertex)
+{
+    int result[3] = {3,2,0};
+    for (int i = 0; vertex != -1; ++i)
+    {
+        assert(vertex == result[i]);
+        vertex = parents[vertex];
+    }
+}
 
 int main()
 {
@@ -57,7 +82,8 @@ int main()
     parents[2] = 0;
     
     Dijkstras_algorithm(graph, costs, parents);
-    
+    print_the_shortest_path(parents, 3);
+    algorithm_testing(parents, 3);
     
     return 0;
 }
